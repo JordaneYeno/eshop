@@ -1,3 +1,7 @@
+CREATE DATABASE eshop;
+
+USE eshop
+
 CREATE TABLE `chaussures` (
   `idxChaussure` int(9) NOT NULL AUTO_INCREMENT,
   `idxMarque` int(9) NOT NULL,
@@ -59,10 +63,10 @@ INSERT INTO `marques` (`idxMarque`, `marque`, `logo`) VALUES
 
 
 -- LISTE LES MARQUES CONTENUS DANS DANS LA TABLES CHAUSSURES
-SELECT marque FROM chaussures;
+SELECT marque FROM marques;
 
 -- SUPPRIME LA CHASSURE DE MARQUE SPARCO
-DELETE FROM chaussures WHERE id = 1;  
+DELETE FROM chaussures WHERE idxChaussure = 1;  
 
 -- MISE A JOUR LA CHASSURE DE MARQUE SPARCO
-UPDATE chaussures SET nomChaussure = 'ADENCO' WHERE id = 2;
+UPDATE chaussures SET nomChaussure = 'ADENCO2' WHERE idxChaussure = 2;

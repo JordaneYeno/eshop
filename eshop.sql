@@ -21,10 +21,7 @@ CREATE TABLE `commandes` (
   `idxClient` int(9) NOT NULL,
   `date` varchar(10) NOT NULL,
   PRIMARY KEY (`idxCommande`),
-  INDEX par_ind (`idxClient`),
-    FOREIGN KEY (`idxClient`)
-        REFERENCES clients(`idxClient`)
-        ON DELETE CASCADE
+  FOREIGN KEY (`idxClient`) REFERENCES clients(`idxClient`)
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
@@ -44,23 +41,15 @@ CREATE TABLE `chaussures` (
   `prix` float NOT NULL,
   `nomChaussure` varchar(25) NOT NULL,
   PRIMARY KEY (`idxChaussure`),  
-  INDEX par_ind (`idxMarque`),
-    FOREIGN KEY (`idxMarque`)
-        REFERENCES marques(`idxMarque`)
-        ON DELETE CASCADE
+  FOREIGN KEY (`idxMarque`) REFERENCES marques(`idxMarque`)
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `detailcommandes` (
-  `idxCommande` int(9) NOT NULL AUTO_INCREMENT,
+  `idxCommande` int(9) NOT NULL,
   `idxChaussure` int(9) NOT NULL,
   `quantite` int(3) NOT NULL,
-  PRIMARY KEY (`idxCommande`),
-  INDEX par_ind (`idxChaussure`),
-    FOREIGN KEY (`idxChaussure`)
-        REFERENCES chaussures(`idxChaussure`)
-        ON DELETE CASCADE
-  
+  FOREIGN KEY (`idxCommande`) REFERENCES commandes(`idxCommande`)
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
